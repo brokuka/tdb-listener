@@ -5,7 +5,7 @@
 		"grammy": "^1.35.0"
 	},
 	"scripts": {
-		"start": "node node --env-file=.env --watch dist/app.cjs",
+		"start": "node --env-file=.env --watch dist/app.cjs",
 		"build:watch": "tsup app.ts --watch",
 		"build": "tsup app.ts",
 		"dev": "node --env-file=.env.dev --watch dist/app.cjs",
