@@ -5,6 +5,7 @@ import { Client, GatewayIntentBits } from 'discord.js'
  * TODO: add users database to mention everyone
  * TODO: update admins in database, there is case when they changed
  * TODO: watch if images can be uploaded to telegram instead getting "preview" mode from discord
+ * TODO: adding cmds to message only telegram, because some people not using discord
  */
 
 const env = {
