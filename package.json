@@ -1,19 +1,18 @@
 {
-	"type": "module",
+	"name": "elysia-bot",
+	"version": "1.0.50",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "bun run --watch src/index.ts",
+		"build": "bun build --compile --minify-whitespace --minify-syntax --target bun --outfile server ./src/index.ts"
+	},
 	"dependencies": {
 		"discord.js": "^14.18.0",
+		"elysia": "latest",
 		"grammy": "^1.35.0"
 	},
-	"scripts": {
-		"start": "node --env-file=.env --watch dist/app.cjs",
-		"build:watch": "tsup app.ts --watch",
-		"build": "tsup app.ts",
-		"dev": "node --env-file=.env.dev --watch dist/app.cjs",
-		"prod": "node --env-file=.env --watch dist/app.cjs"
-	},
-	"packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
 	"devDependencies": {
-		"tsup": "^8.4.0",
-		"typescript": "^5.7.3"
-	}
+		"bun-types": "latest"
+	},
+	"module": "src/index.js"
 }
