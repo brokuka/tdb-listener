@@ -34,7 +34,11 @@ discordClient.on('messageCreate', async (message) => {
 	if (hasEveryoneMention) {
 		formattedMessage = `🔔 Notification from *${username}* 🔔\n\n${content}`;
 
-		await notifyAdmins(message, formattedMessage)
+		const adminsMention = await notifyAdmins(message)
+
+		if (adminsMention) {
+			formattedMessage += `\n\n${adminsMention}`;
+		}
 	}
 
 	if (message.attachments.size > 0) {
@@ -52,6 +56,9 @@ const app = new Hono()
 app.get('/', (c) => {
 	return c.text('Hello Hono3!')
 })
+
+discordClient.login(env.DISCORD_TOKEN);
+tgBot.start()
 
 export default {
 	port: env.SERVER_PORT,

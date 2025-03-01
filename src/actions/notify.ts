@@ -2,7 +2,7 @@ import { chatUsers } from '../index';
 import { env } from '../config';
 import { tgBot } from './connect';
 
-export async function notifyAdmins(messageObject: any, messageText?: string) {
+export async function notifyAdmins(messageObject: any) {
 	try {
 		const chatAdmins = await tgBot.api.getChatAdministrators(env.TELEGRAM_CHAT_ID);
 
@@ -20,9 +20,7 @@ export async function notifyAdmins(messageObject: any, messageText?: string) {
 			}
 		}
 
-		if (mentions && messageText) {
-			messageText += `\n\n${mentions}`;
-		}
+		return mentions
 	} catch (error) {
 		console.error('Error occurs when getting users list:', error);
 	}
