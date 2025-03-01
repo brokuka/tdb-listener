@@ -4,6 +4,8 @@
     "dev": "bun run --hot src/index.ts"
   },
   "dependencies": {
+    "discord.js": "^14.18.0",
+    "grammy": "^1.35.0",
     "hono": "^4.7.2"
   },
   "devDependencies": {
