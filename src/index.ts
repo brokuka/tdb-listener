@@ -4,6 +4,7 @@ import { discordClient, tgBot } from './actions/connect';
 import { escapeMarkdown } from './helpers/common';
 import { notifyAdmins } from './actions/notify';
 import { sendMessageTg } from './actions/send';
+import { Events } from 'discord.js';
 
 /**
  * TODO: add users database to mention everyone
@@ -58,9 +59,9 @@ app.get('/', (c) => {
 })
 
 console.log('start bots')
-discordClient.on('error', (er) => console.log('@er', er))
+discordClient.on(Events.Error, (err) => console.log('@err', err))
 discordClient.login(env.DISCORD_TOKEN).catch((r) => console.log('@discordClient', r))
-discordClient.on('error', (er) => console.log('@er', er))
+discordClient.on(Events.Error, (err) => console.log('@err', err))
 tgBot.start({
 	onStart(botInfo) {
 		console.log('@tgBotInfo', botInfo)

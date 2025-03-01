@@ -1,6 +1,6 @@
 import { Bot } from 'grammy';
 import { env } from '../config';
-import { Client, GatewayIntentBits } from 'discord.js';
+import { Client, Events, GatewayIntentBits } from 'discord.js';
 
 const tgBot = new Bot(env.TELEGRAM_TOKEN)
 
@@ -12,6 +12,5 @@ const discordClient = new Client({
 	]
 });
 
-discordClient.on('error', (dce) => console.log('@dce', dce))
-
+discordClient.on(Events.Error, (err) => console.log('@err', err))
 export { tgBot, discordClient }
