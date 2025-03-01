@@ -6,6 +6,8 @@ export async function notifyAdmins(messageObject: any, messageText?: string) {
 	try {
 		const chatAdmins = await tgBot.api.getChatAdministrators(env.TELEGRAM_CHAT_ID);
 
+		console.log(chatAdmins.forEach(i => i.user))
+
 		let mentions = '';
 
 		for (const member of chatAdmins) {

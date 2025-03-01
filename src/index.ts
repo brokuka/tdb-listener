@@ -47,7 +47,7 @@ discordClient.on('messageCreate', async (message) => {
 	await sendMessageTg(message, formattedMessage)
 });
 
-const app = new Elysia().get("/", () => "Bot is working stable!").listen(3000);
+const app = new Elysia().get("/", () => "Bot is working stable!").listen(env.SERVER_PORT);
 
 discordClient.login(env.DISCORD_TOKEN);
 tgBot.start()
