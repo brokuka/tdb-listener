@@ -57,8 +57,14 @@ app.get('/', (c) => {
 	return c.text('Hello Hono3!')
 })
 
+console.log('start bots')
 discordClient.login(env.DISCORD_TOKEN);
-tgBot.start()
+tgBot.start({
+	onStart(botInfo) {
+		console.log('@tgBotInfo', botInfo)
+	},
+})
+console.log('start end')
 
 export default {
 	port: env.SERVER_PORT,
