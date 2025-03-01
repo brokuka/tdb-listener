@@ -12,4 +12,6 @@ const discordClient = new Client({
 	]
 });
 
+discordClient.on('error', (dce) => console.log('@dce', dce))
+
 export { tgBot, discordClient }
