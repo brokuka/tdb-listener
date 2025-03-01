@@ -60,7 +60,7 @@ app.get('/', (c) => {
 
 console.log('start bots')
 discordClient.on(Events.Error, (err) => console.log('@err', err))
-discordClient.login(env.DISCORD_TOKEN).catch((r) => console.log('@discordClient', r))
+discordClient.login(env.DISCORD_TOKEN)
 discordClient.on(Events.Error, (err) => console.log('@err', err))
 tgBot.start({
 	onStart(botInfo) {
