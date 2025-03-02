@@ -4,7 +4,6 @@ import { discordClient, tgBot } from './actions/connect';
 import { escapeMarkdown } from './helpers/common';
 import { notifyAdmins } from './actions/notify';
 import { sendMessageTg } from './actions/send';
-import { Events } from 'discord.js';
 
 /**
  * TODO: add users database to mention everyone
@@ -70,7 +69,11 @@ tgBot.start({
 })
 console.log('start end')
 
-export default {
-	port: env.SERVER_PORT,
-	fetch: app.fetch,
-}
+
+export default app
+// serve({
+// 	fetch: app.fetch,
+// 	port: env.SERVER_PORT
+// }, (info) => {
+// 	console.log(`Server is running on http://localhost:${info.port}`)
+// })
